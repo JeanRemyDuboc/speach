@@ -34,7 +34,7 @@
 	</div>
 	<div class="collapse navbar-collapse">
 	  <ul class="nav navbar-nav">
-	    <li class="active"><a href="#">Home</a></li>
+	    <li><a href="index.html">Home</a></li>
 	    <li><a href="#about">About</a></li>
 	    <li><a href="#a-propos">A propos</a></li>
 	  </ul>
@@ -110,7 +110,7 @@
 			</div>
 			<div class="col-sm-3">
 				<h2>Sac à Syllabes</h2>
-				<div class="sac-syllabes">
+				<div id="sac-syllabes">
 					<span class="circle full"></span>
 					<span class="circle full"></span>
 					<span class="circle full"></span>
@@ -119,6 +119,27 @@
 					<span class="circle full"></span>
 					<span class="circle full"></span>
 					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full"></span>
+					<span class="circle full" id="test"></span>
 				</div>
 			</div>
 			<div class="col-sm-2">Ligne temporelle</div>
@@ -129,5 +150,23 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<!-- jQuery UI-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	
+	<script>
+		$( document ).ready(function() {
+			$.each($("#sac-syllabes .circle"), function( index, value ) {
+					$(this).draggable();
+					console.log($(this));
+				}
+			);
+			
+			/*$.each("#sac-syllabes .circle")(function(index) {
+				console.log(this);
+			});
+			console.log($("#test"));*/
+			// $("#test").draggable();
+		});
+	</script>
   </body>
 </html>
