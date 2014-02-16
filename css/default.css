@@ -1,0 +1,25 @@
+body {
+	padding-top: 50px;
+}
+
+.circle {
+	display: block;
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin: 0 5px 5px 0;
+	}
+
+	.empty {
+		background: transparent url("../img/circle-empty.png") center center;
+		}
+	
+	.full {
+		background: transparent url("../img/circle-full.png") center center;
+		}
+	
+.main .thumbnail {
+	width: 200px;
+	float: left;
+	margin: 0 10px 10px 0;
+	}
