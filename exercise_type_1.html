@@ -156,9 +156,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	
 	<script>
-		$( document ).ready(function() {
+		$(document).ready(function() {
 			$.each($("#sac-syllabes .circle"), function( index, value ) {
 					$(this).draggable();
+					$(this).css('-ms-touch-action', 'none');
 					console.log($(this));
 				}
 			);
