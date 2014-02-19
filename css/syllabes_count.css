@@ -1,0 +1,48 @@
+.empty {
+	background: transparent url("../img/circle-empty.png") center center;
+	}
+
+.full {
+	background: transparent url("../img/circle-full.png") center center;
+	}
+	
+.main .thumbnail {
+	width: 200px;
+	float: left;
+	margin: 0 10px 10px 0;
+	}
+	
+	.main .thumbnail .caption {
+		padding: 7px 0 0 0;
+		margin: 10px 0 0 0;
+		}
+	
+.main .thumbnail img {
+	width: 180px;
+	margin: 0 auto; 
+	}
+	
+	.main .thumbnail .caption {
+		text-align: center;
+		}
+		
+		.main .thumbnail .caption .circle {
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			margin: 0 5px 5px 0;
+			}
+			
+.result-btn {
+	padding: 20px 0 0 0;
+	clear: both;
+	font-size: 35px;
+	}
+	
+#sac-syllabes .circle {
+	display: block;
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin: 0 5px 5px 0;
+	}
