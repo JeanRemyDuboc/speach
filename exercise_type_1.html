@@ -51,9 +51,9 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-7 main">
-				<div class="thumbnail">
+				<div class="thumbnail" data-solution="2">
 					<img alt="cheval" src="img/obj/cheval.png">
-					<div class="caption syllabes-counter" data-solution="2">
+					<div class="caption syllabes-counter" >
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -61,9 +61,9 @@
 					</div>
 				</div>
 
-				<div class="thumbnail">
+				<div class="thumbnail" data-solution="2">
 					<img alt="rateau" src="img/obj/rateau.png">
-					<div class="caption syllabes-counter" data-solution="2">
+					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -71,9 +71,9 @@
 					</div>
 				</div>
 					
-				<div class="thumbnail">
+				<div class="thumbnail" data-solution="1">
 					<img alt="gants" src="img/obj/gants.png">
-					<div class="caption syllabes-counter" data-solution="1">
+					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -81,9 +81,9 @@
 					</div>
 				</div>	
 
-				<div class="thumbnail">
+				<div class="thumbnail" data-solution="1">
 					<img alt="chat" src="img/obj/chat.png">
-					<div class="caption syllabes-counter" data-solution="1">
+					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -91,9 +91,9 @@
 					</div>
 				</div>
 
-				<div class="thumbnail">
+				<div class="thumbnail" data-solution="2">
 					<img alt="tomate" src="img/obj/tomate.png">
-					<div class="caption syllabes-counter" data-solution="2">
+					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -101,9 +101,9 @@
 					</div>
 				</div>
 					
-				<div class="thumbnail">
+				<div class="thumbnail" data-solution="3">
 					<img alt="dinosaure" src="img/obj/dinosaure.png">
-					<div class="caption syllabes-counter" data-solution="3">
+					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -113,15 +113,15 @@
 				
 				<div class="result-btn">
 					<p>Tu joues pour:
-						<span class="glyphicon glyphicon-star-empty"></span>
-						<span class="glyphicon glyphicon-star-empty"></span>
-						<span class="glyphicon glyphicon-star-empty"></span>
-						<span class="glyphicon glyphicon-star-empty"></span>
-						<span class="glyphicon glyphicon-star-empty"></span>
-						<span class="glyphicon glyphicon-star-empty"></span>
-						<span class="glyphicon glyphicon-star-empty"></span>
-						<br/>
-						<a class="btn btn-primary btn-long" role="button" href="javsacript;:">OK</a>	
+						<div id="score">
+							<span class="glyphicon glyphicon-star-empty neutral"></span>
+							<span class="glyphicon glyphicon-star-empty neutral"></span>
+							<span class="glyphicon glyphicon-star-empty neutral"></span>
+							<span class="glyphicon glyphicon-star-empty neutral"></span>
+							<span class="glyphicon glyphicon-star-empty neutral"></span>
+							<span class="glyphicon glyphicon-star-empty neutral"></span>
+						</div>
+						<a id="correction" class="btn btn-primary btn-long" role="button" href="javsacript;:">OK</a>	
 					</p>
 				</div>
 			</div>
@@ -163,31 +163,68 @@
 					}
 				});
 			});
+			
+			$("#correction").click(function() {
+				var score = 0;
+				$(".main .thumbnail").each(function(elmt) {
+					var correctAnswer = $(this).attr("data-solution");
+					var givenAnswer = $(this).children(".caption").children(".full").length;
+					
+					var result = givenAnswer == correctAnswer;
+					if(result)
+					{
+						$(this).addClass("correct");
+						$(this).removeClass("incorrect");
+						score++;
+					}
+					else
+					{
+						$(this).addClass("incorrect");
+						$(this).removeClass("correct");
+					}
+				});
+				console.log(score);
+				
+				var counter = 1;
+				$("#score .glyphicon").each(function(elmt) {
+					if(counter <= score)
+					{
+						$(this).addClass("correct-star");
+					}
+					else
+					{
+						$(this).removeClass("correct-star");
+					}
+					counter++;
+				});
+				
+				/*for(var i=0; i<score; i++)
+				{
+					$("#score").append( "<span class='glyphicon glyphicon-star-empty'></span>" );
+				}*/
+			});
 		});
 		
 		function activateChips(){
 			$.each($("#sac-syllabes .circle"), function( index, value ) {
-				$(this).draggable({
-					stop: function(){
-						alert("test");
-					}
-				});
+				$(this).draggable({});
 				$(this).css('-ms-touch-action', 'none');
 			});
 		}
 		
 		function addMoreChips()
 		{
-			var numberChips = $( "#sac-syllabes .circle" ).length;
+			var numberChips = $("#sac-syllabes .circle").length;
 			if(numberChips <= 1)
 			{
 				for(var i=0; i<6; i++)
 				{
-					$( "#sac-syllabes .circle" ).first().clone().appendTo("#sac-syllabes");
+					$("#sac-syllabes .circle").first().clone().appendTo("#sac-syllabes");
 				}
 				activateChips();
 			}
 		}
+		
 	</script>
   </body>
 </html>

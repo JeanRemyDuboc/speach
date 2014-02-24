@@ -6,6 +6,22 @@
 	background: transparent url("../img/circle-full.png") center center;
 	}
 	
+.correct {
+	background: #046338;
+	}
+	
+.incorrect {
+	background: #860013;
+	}
+	
+#score span {
+	color: #bbb;
+	}
+	
+	#score .correct-star {
+		color: #e8a900;
+		}
+	
 .main .thumbnail {
 	width: 200px;
 	float: left;
@@ -19,7 +35,7 @@
 	
 .main .thumbnail img {
 	width: 180px;
-	margin: 0 auto; 
+	margin: 7px auto 0 auto; 
 	}
 	
 	.main .thumbnail .caption {
