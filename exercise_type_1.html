@@ -55,6 +55,7 @@
 			<div class="col-sm-7 main">
 				<div class="thumbnail" data-solution="2">
 					<img alt="cheval" src="img/obj/cheval.png">
+					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter" >
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -65,6 +66,7 @@
 
 				<div class="thumbnail" data-solution="3">
 					<img alt="arrosoir" src="img/obj/arrosoir.png">
+					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -75,6 +77,7 @@
 					
 				<div class="thumbnail" data-solution="1">
 					<img alt="gants" src="img/obj/gants.png">
+					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -85,6 +88,7 @@
 
 				<div class="thumbnail" data-solution="1">
 					<img alt="chat" src="img/obj/chat.png">
+					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -95,6 +99,7 @@
 
 				<div class="thumbnail" data-solution="2">
 					<img alt="tomate" src="img/obj/tomate.png">
+					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -105,6 +110,7 @@
 					
 				<div class="thumbnail" data-solution="3">
 					<img alt="dinosaure" src="img/obj/dinosaure.png">
+					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -128,9 +134,10 @@
 				</div>
 			</div>
 			
-			<div class="col-sm-3">
+			<div class="col-sm-2">
 				<h2>Sac à Syllabes</h2>
 				<div id="sac-syllabes">
+					<span class="circle full"></span>
 					<span class="circle full"></span>
 					<span class="circle full"></span>
 					<span class="circle full"></span>
@@ -181,6 +188,10 @@
 		$(document).ready(function(){
 			activateChips();
 			
+			var audioElement = document.createElement('audio');
+			audioElement.setAttribute('src', 'audio.mp3');
+			audioElement.setAttribute('autoplay', 'autoplay');
+			
 			$.each($(".main .thumbnail"), function( index, value ) {
 				$(this).droppable({
 					drop: function(event, ui){
@@ -189,6 +200,15 @@
 						addMoreChips();
 					}
 				});
+				
+				this.addEventListener("click", function() {
+					var audioElement = document.createElement('audio');
+					var audioSrc = 'audio/'+$(this).children("img").attr("alt")+'.mp3';
+					audioElement.setAttribute('src', audioSrc);
+					//audioElement.setAttribute('autoplay', 'autoplay');
+					audioElement.play()
+					console.log(audioSrc);
+		       }, true);
 			});
 			
 			$("#correction").click(function() {

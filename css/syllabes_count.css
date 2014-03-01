@@ -55,7 +55,18 @@
 	width: 205px;
 	float: left;
 	margin: 0 10px 10px 0;
+	position: relative;
 	}
+	
+	.main .thumbnail .sound {
+		background: url("../img/sound.png") no-repeat 0 0;
+		width: 32px;
+		height: 32px;
+		display: block;
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		}
 	
 	.main .thumbnail .caption {
 		padding: 7px 0 0 0;
