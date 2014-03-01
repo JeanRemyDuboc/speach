@@ -6,13 +6,42 @@
 	background: transparent url("../img/circle-full.png") center center;
 	}
 	
-.correct {
-	background: #046338;
+.main .correct {
+	border: 1px solid #82CF0C;
 	}
 	
-.incorrect {
-	background: #860013;
+.main .incorrect {
+	border: 1px solid #C32A00;
 	}
+	
+#right-colmn .thumbnail {
+	position: relative;
+	}
+	
+#right-colmn .tick-cross {
+	display: block;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	}
+	
+#right-colmn .correct {
+	background: #82CF0C;
+	}
+	
+	#right-colmn .correct .tick-cross {
+		background: url("../img/tick.png");
+		}
+	
+#right-colmn .incorrect {
+	background: #C32A00;
+	}
+	
+	#right-colmn .incorrect .tick-cross {
+		background: url("../img/cross.png");
+		}	
 	
 #score span {
 	color: #bbb;
@@ -23,7 +52,7 @@
 		}
 	
 .main .thumbnail {
-	width: 200px;
+	width: 205px;
 	float: left;
 	margin: 0 10px 10px 0;
 	}
@@ -62,3 +91,14 @@
 	height: 30px;
 	margin: 0 5px 5px 0;
 	}
+	
+#right-colmn {
+	padding-top: 10px;
+	background: url("../img/timeline.png") repeat-y 55px 0;
+	}
+
+	#right-colmn .thumbnail {
+		width: 80px;
+		padding: 10px;
+		margin-bottom: 10px;
+		}

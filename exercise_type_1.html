@@ -46,10 +46,12 @@
 	</div>
 	
 	<div class="container">
-		<div class="starter-template">
-			<h1>Je mets autant de jetons que j'entends de syllabes</h1>
-		</div>
 		<div class="row">
+			<div class="col-sm-10">
+				<div class="starter-template">
+					<h1>Je mets autant de jetons que j'entends de syllabes</h1>
+				</div>
+			</div>
 			<div class="col-sm-7 main">
 				<div class="thumbnail" data-solution="2">
 					<img alt="cheval" src="img/obj/cheval.png">
@@ -61,8 +63,8 @@
 					</div>
 				</div>
 
-				<div class="thumbnail" data-solution="2">
-					<img alt="rateau" src="img/obj/rateau.png">
+				<div class="thumbnail" data-solution="3">
+					<img alt="arrosoir" src="img/obj/arrosoir.png">
 					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
@@ -113,14 +115,14 @@
 				
 				<div class="result-btn">
 					<p>Tu joues pour:
-						<div id="score">
+						<span id="score">
 							<span class="glyphicon glyphicon-star-empty neutral"></span>
 							<span class="glyphicon glyphicon-star-empty neutral"></span>
 							<span class="glyphicon glyphicon-star-empty neutral"></span>
 							<span class="glyphicon glyphicon-star-empty neutral"></span>
 							<span class="glyphicon glyphicon-star-empty neutral"></span>
 							<span class="glyphicon glyphicon-star-empty neutral"></span>
-						</div>
+						</span>
 						<a id="correction" class="btn btn-primary btn-long" role="button" href="#">OK</a>	
 					</p>
 				</div>
@@ -139,7 +141,32 @@
 				</div>
 			</div>
 			
-			<div class="col-sm-2">Ligne temporelle</div>
+			<div class="col-sm-2" id="right-colmn">
+				<div class="thumbnail" id="cheval">
+					<img alt="cheval" src="img/obj/cheval.png">
+					<span class="tick-cross">&nbsp;</span>
+				</div>
+				<div class="thumbnail" id="arrosoir">
+					<img alt="arrosoir" src="img/obj/arrosoir.png">
+					<span class="tick-cross">&nbsp;</span>
+				</div>
+				<div class="thumbnail" id="gants">
+					<img alt="gants" src="img/obj/gants.png">
+					<span class="tick-cross">&nbsp;</span>
+				</div>
+				<div class="thumbnail" id="chat">
+					<img alt="chat" src="img/obj/chat.png">
+					<span class="tick-cross">&nbsp;</span>
+				</div>
+				<div class="thumbnail" id="tomate">
+					<img alt="tomate" src="img/obj/tomate.png">
+					<span class="tick-cross">&nbsp;</span>
+				</div>
+				<div class="thumbnail" id="dinosaure">
+					<img alt="dinosaure" src="img/obj/dinosaure.png">
+					<span class="tick-cross">&nbsp;</span>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -171,19 +198,27 @@
 					var givenAnswer = $(this).children(".caption").children(".full").length;
 					
 					var result = givenAnswer == correctAnswer;
+					var timeItem = $("#" + $(this).children("img").attr("alt"));
+					
 					if(result)
 					{
+						timeItem.addClass("correct");
+						timeItem.removeClass("incorrect");
+						
 						$(this).addClass("correct");
 						$(this).removeClass("incorrect");
 						score++;
 					}
 					else
 					{
+						timeItem.addClass("incorrect");
+						timeItem.removeClass("correct");
+						
 						$(this).addClass("incorrect");
 						$(this).removeClass("correct");
 					}
 				});
-				console.log(score);
+				//console.log(score);
 				
 				var counter = 1;
 				$("#score .glyphicon").each(function(elmt) {
@@ -197,11 +232,6 @@
 					}
 					counter++;
 				});
-				
-				/*for(var i=0; i<score; i++)
-				{
-					$("#score").append( "<span class='glyphicon glyphicon-star-empty'></span>" );
-				}*/
 			});
 		});
 		
