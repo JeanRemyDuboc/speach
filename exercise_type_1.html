@@ -120,14 +120,15 @@
 				</div>	
 				
 				<div class="result-btn">
-					<p>Tu joues pour:
+					<p>
+						<span>Tu joues pour:</span>
 						<span id="score">
-							<span class="glyphicon glyphicon-star-empty neutral"></span>
-							<span class="glyphicon glyphicon-star-empty neutral"></span>
-							<span class="glyphicon glyphicon-star-empty neutral"></span>
-							<span class="glyphicon glyphicon-star-empty neutral"></span>
-							<span class="glyphicon glyphicon-star-empty neutral"></span>
-							<span class="glyphicon glyphicon-star-empty neutral"></span>
+							<span class="star"></span>
+							<span class="star"></span>
+							<span class="star"></span>
+							<span class="star"></span>
+							<span class="star"></span>
+							<span class="star"></span>
 						</span>
 						<a id="correction" class="btn btn-primary btn-long" role="button" href="#">OK</a>	
 					</p>
@@ -200,10 +201,12 @@
 						addMoreChips();
 					}
 				});
-				
+			});
+			
+			$.each($(".main .thumbnail img"), function( index, value ) {
 				this.addEventListener("click", function() {
 					var audioElement = document.createElement('audio');
-					var audioSrc = 'audio/'+$(this).children("img").attr("alt")+'.mp3';
+					var audioSrc = 'audio/'+$(this).attr("alt")+'.mp3';
 					audioElement.setAttribute('src', audioSrc);
 					//audioElement.setAttribute('autoplay', 'autoplay');
 					audioElement.play()
@@ -211,6 +214,13 @@
 		       }, true);
 			});
 			
+			$.each($(".syllabes-counter span.empty"), function( index, value ) {
+				this.addEventListener("click", function() {
+					$(this).removeClass("full");
+					$(this).addClass("empty");
+				});
+			});
+				
 			$("#correction").click(function() {
 				var score = 0;
 				$(".main .thumbnail").each(function(elmt) {
@@ -241,17 +251,19 @@
 				//console.log(score);
 				
 				var counter = 1;
-				$("#score .glyphicon").each(function(elmt) {
+				$("#score span").each(function(elmt) {
 					if(counter <= score)
 					{
 						$(this).addClass("correct-star");
-					}
-					else
-					{
-						$(this).removeClass("correct-star");
+						$(this).removeClass("star");
 					}
 					counter++;
 				});
+				
+				if (score == 6)
+				{
+					window.location.href = "bravo.html";
+				}
 			});
 		});
 		

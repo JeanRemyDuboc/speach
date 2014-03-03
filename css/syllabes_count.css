@@ -41,16 +41,32 @@
 	
 	#right-colmn .incorrect .tick-cross {
 		background: url("../img/cross.png");
-		}	
-	
-#score span {
-	color: #bbb;
+		}
+		
+.result-btn span {
+	display: block;
+	float: left;
+	font-size: 25px;
 	}
 	
-	#score .correct-star {
-		color: #e8a900;
-		}
+#score {
+	margin-left: 5px;
+	}
 	
+	#score span {
+		width: 24px;
+		height: 30px;
+		margin: 2px 5px 0 0;
+		}
+		
+		#score span.correct-star {
+			background: url("../img/star.png") no-repeat 0 5px;
+			}
+		
+		#score span.star {
+			background: url("../img/star-grey.png") no-repeat 0 5px;
+			}
+		
 .main .thumbnail {
 	width: 205px;
 	float: left;
@@ -92,7 +108,6 @@
 .result-btn {
 	padding: 20px 0 0 0;
 	clear: both;
-	font-size: 35px;
 	}
 	
 #sac-syllabes .circle {
