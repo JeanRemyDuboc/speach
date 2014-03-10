@@ -189,11 +189,7 @@
 		$(document).ready(function(){
 			activateChips();
 			
-			var audioElement = document.createElement('audio');
-			audioElement.setAttribute('src', 'audio.mp3');
-			audioElement.setAttribute('autoplay', 'autoplay');
-			
-			$.each($(".main .thumbnail"), function( index, value ) {
+			$.each($(".main .thumbnail"), function(index, value) {
 				$(this).droppable({
 					drop: function(event, ui){
 						ui.draggable.remove();
@@ -203,16 +199,21 @@
 				});
 			});
 			
+			var audio = {};
+			
 			$.each($(".main .thumbnail img"), function( index, value ) {
-				this.addEventListener("click", function() {
-					var audioElement = document.createElement('audio');
-					var audioSrc = 'audio/'+$(this).attr("alt")+'.mp3';
-					audioElement.setAttribute('src', audioSrc);
-					//audioElement.setAttribute('autoplay', 'autoplay');
-					audioElement.play()
-					console.log(audioSrc);
-		       }, true);
+				// Preload all the sound files
+				var thisAlt = $(this).attr("alt");
+		        audio[thisAlt] = new Audio();
+		        audio[thisAlt].src = 'audio/' + thisAlt + '.mp3';
+		        
+		        this.addEventListener("click", function() {
+		            audio[thisAlt].play();
+		            console.log(audio[thisAlt]);
+		        });
 			});
+			
+			console.log(audio);
 			
 			$.each($(".syllabes-counter span.empty"), function( index, value ) {
 				this.addEventListener("click", function() {
@@ -222,6 +223,10 @@
 			});
 				
 			$("#correction").click(function() {
+				okSound = new Audio();
+				okSound.src = 'audio/ok.mp3';
+				okSound.play();
+				
 				var score = 0;
 				$(".main .thumbnail").each(function(elmt) {
 					var correctAnswer = $(this).attr("data-solution");
@@ -248,7 +253,6 @@
 						$(this).removeClass("correct");
 					}
 				});
-				//console.log(score);
 				
 				var counter = 1;
 				$("#score span").each(function(elmt) {
@@ -262,7 +266,7 @@
 				
 				if (score == 6)
 				{
-					window.location.href = "bravo.html";
+					setInterval(function(){window.location.href = "bravo.html";},2000);
 				}
 			});
 		});
@@ -286,7 +290,6 @@
 				activateChips();
 			}
 		}
-		
 	</script>
   </body>
 </html>
