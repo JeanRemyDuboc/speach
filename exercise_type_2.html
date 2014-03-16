@@ -12,7 +12,7 @@
 		
 		<!-- Speach CSS -->
 		<link rel="stylesheet" href="css/default.css">
-		<link rel="stylesheet" href="css/syllabes_count.css">
+		<link rel="stylesheet" href="css/syllabes_placement.css">
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -49,76 +49,46 @@
 		<div class="row">
 			<div class="col-sm-10">
 				<div class="starter-template">
-					<h1>Je mets autant de jetons que j'entends de syllabes</h1>
+					<h1>Je mets un jeton dans la syllabe où j'entends [a]</h1>
 				</div>
 			</div>
 			<div class="col-sm-7 main">
-				<div class="thumbnail" data-solution="2">
+				<div class="thumbnail">
 					<img alt="cheval" src="img/obj/cheval.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter" >
 						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
+						<span class="circle empty answer"></span>
 					</div>
 				</div>
 
-				<div class="thumbnail" data-solution="3">
+				<div class="thumbnail">
 					<img alt="arrosoir" src="img/obj/arrosoir.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
+						<span class="circle empty answer"></span>
 						<span class="circle empty"></span>
 						<span class="circle empty"></span>
 					</div>
 				</div>
 					
-				<div class="thumbnail" data-solution="1">
-					<img alt="gants" src="img/obj/gants.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-					</div>
-				</div>	
-
 				<div class="thumbnail" data-solution="1">
 					<img alt="chat" src="img/obj/chat.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
+						<span class="circle empty answer"></span>
 					</div>
 				</div>
 
-				<div class="thumbnail" data-solution="2">
+				<div class="thumbnail">
 					<img alt="tomate" src="img/obj/tomate.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
 						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
+						<span class="circle empty answer"></span>
 					</div>
 				</div>
 					
-				<div class="thumbnail" data-solution="3">
-					<img alt="dinosaure" src="img/obj/dinosaure.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-					</div>
-				</div>	
-				
 				<div class="result-btn">
 					<p>
 						<span>Tu joues pour:</span>
@@ -144,16 +114,6 @@
 					<span class="circle full"></span>
 					<span class="circle full"></span>
 					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
 				</div>
 			</div>
 			
@@ -166,20 +126,12 @@
 					<img alt="arrosoir" src="img/obj/arrosoir.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
-				<div class="thumbnail" id="gants">
-					<img alt="gants" src="img/obj/gants.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
 				<div class="thumbnail" id="chat">
 					<img alt="chat" src="img/obj/chat.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
 				<div class="thumbnail" id="tomate">
 					<img alt="tomate" src="img/obj/tomate.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
-				<div class="thumbnail" id="dinosaure">
-					<img alt="dinosaure" src="img/obj/dinosaure.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
 			</div>
@@ -197,18 +149,33 @@
 		$(document).ready(function(){
 			activateChips();
 			
-			$.each($(".main .thumbnail"), function(index, value) {
+			function activateChips(){
+				$.each($("#sac-syllabes .circle"), function(index, value) {
+					$(this).draggable({
+						revert: "invalid",
+					});
+					$(this).css('-ms-touch-action', 'none');
+				});
+			}
+			
+			$.each($(".main .thumbnail .circle"), function(index, value) {
 				$(this).droppable({
 					drop: function(event, ui){
 						ui.draggable.remove();
-						$(this).children(".caption").children(".empty").first().addClass("full").removeClass("empty");
-					}
+						$(this).addClass("full").removeClass("empty");
+						$.each($(this).siblings(), function(index, value) {
+							$(value).droppable('disable');
+						});
+						//.droppable.remove();
+					},
+					greedy: true,
+					tolerance: 'pointer',
 				});
 			});
 			
 			var audio = {};
 			
-			$.each($(".main .thumbnail img"), function( index, value ) {
+			$.each($(".main .thumbnail img"), function(index, value) {
 				// Preload all the sound files
 				var thisAlt = $(this).attr("alt");
 		        audio[thisAlt] = new Audio();
@@ -220,10 +187,13 @@
 		        });
 			});
 			
-			$.each($(".syllabes-counter span.empty"), function( index, value ) {
+			$.each($(".syllabes-counter span.empty"), function(index, value) {
 				this.addEventListener("click", function() {
 					$(this).removeClass("full");
 					$(this).addClass("empty");
+					$.each($(this).siblings(), function(index, value) {
+						$(value).droppable('enable');
+					});
 					$("#sac-syllabes .circle").first().clone().appendTo("#sac-syllabes");
 					activateChips();
 				});
@@ -236,10 +206,8 @@
 				
 				var score = 0;
 				$(".main .thumbnail").each(function(elmt) {
-					var correctAnswer = $(this).attr("data-solution");
-					var givenAnswer = $(this).children(".caption").children(".full").length;
-					
-					var result = givenAnswer == correctAnswer;
+					var givenAnswer = $(this).children(".caption").children(".full");
+					var result = givenAnswer.hasClass("answer");
 					var timeItem = $("#" + $(this).children("img").attr("alt"));
 					
 					if(result)
@@ -271,21 +239,14 @@
 					counter++;
 				});
 				
+				
 				if (score == $(".main .thumbnail").length)
 				{
 					setInterval(function(){window.location.href = "bravo.html";},2000);
 				}
 			});
+			
 		});
-		
-		function activateChips(){
-			$.each($("#sac-syllabes .circle"), function( index, value ) {
-				$(this).draggable({
-					revert: "invalid",
-				});
-				$(this).css('-ms-touch-action', 'none');
-			});
-		}
 	</script>
   </body>
 </html>
