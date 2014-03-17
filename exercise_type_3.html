@@ -57,47 +57,47 @@
 					<img alt="valise" src="img/obj/gants.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter" >
-						<span class="syllabe">__</span><span>lise</span>
+						<span class="syllabe" data-solution="va">__</span><span>lise</span>
 					</div>
 				</div>
 
 				<div class="thumbnail">
-					<img alt="arrosoir" src="img/obj/gants.png">
+					<img alt="pirate" src="img/obj/gants.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
-						<span>pi</span><span class="syllabe">__</span><span>te</span>
+						<span>pi</span><span class="syllabe" data-solution="ra">__</span><span>te</span>
 					</div>
 				</div>
 					
 				<div class="thumbnail" data-solution="1">
-					<img alt="chat" src="img/obj/gants.png">
+					<img alt="chapeau" src="img/obj/gants.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
-						<span class="syllabe">__</span><span>peau</span>
+						<span class="syllabe" data-solution="cha">__</span><span>peau</span>
 					</div>
 				</div>
 
 				<div class="thumbnail">
-					<img alt="tomate" src="img/obj/gants.png">
+					<img alt="tapis" src="img/obj/gants.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
-						<span class="syllabe">__</span><span>pis</span>
+						<span class="syllabe" data-solution="ta">__</span><span>pis</span>
 					</div>
 				</div>
 				
 				<div class="thumbnail">
-					<img alt="tomate" src="img/obj/gants.png">
+					<img alt="ananas" src="img/obj/gants.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
-						<span>a</span><span class="syllabe">__</span><span>nas</span>
+						<span>a</span><span class="syllabe" data-solution="na">__</span><span>nas</span>
 					</div>
 				</div>
 				
 				<div class="thumbnail">
-					<img alt="tomate" src="img/obj/gants.png">
+					<img alt="banane" src="img/obj/gants.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
-						<span>ba</span><span class="syllabe">__</span><span>ne</span>
+						<span>ba</span><span class="syllabe" data-solution="na">__</span><span>ne</span>
 					</div>
 				</div>
 					
@@ -130,20 +130,28 @@
 			</div>
 			
 			<div class="col-sm-2" id="right-colmn">
-				<div class="thumbnail" id="cheval">
-					<img alt="cheval" src="img/obj/cheval.png">
+				<div class="thumbnail" id="valise">
+					<img alt="valise" src="img/obj/cheval.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
-				<div class="thumbnail" id="arrosoir">
-					<img alt="arrosoir" src="img/obj/arrosoir.png">
+				<div class="thumbnail" id="pirate">
+					<img alt="pirate" src="img/obj/arrosoir.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
-				<div class="thumbnail" id="chat">
-					<img alt="chat" src="img/obj/chat.png">
+				<div class="thumbnail" id="chapeau">
+					<img alt="chapeau" src="img/obj/chat.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
-				<div class="thumbnail" id="tomate">
-					<img alt="tomate" src="img/obj/tomate.png">
+				<div class="thumbnail" id="tapis">
+					<img alt="tapis" src="img/obj/tomate.png">
+					<span class="tick-cross">&nbsp;</span>
+				</div>
+				<div class="thumbnail" id="ananas">
+					<img alt="ananas" src="img/obj/tomate.png">
+					<span class="tick-cross">&nbsp;</span>
+				</div>
+				<div class="thumbnail" id="banane">
+					<img alt="banane" src="img/obj/tomate.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
 			</div>
@@ -214,8 +222,9 @@
 				
 				var score = 0;
 				$(".main .thumbnail").each(function(elmt) {
-					var givenAnswer = $(this).children(".caption").children(".full");
-					var result = givenAnswer.hasClass("answer");
+					var givenAnswer = $(this).children(".caption").children(".syllabe").html();
+					var correctAnswer =  $(this).children(".caption").children(".syllabe").attr("data-solution");
+					var result = givenAnswer == correctAnswer;
 					var timeItem = $("#" + $(this).children("img").attr("alt"));
 					
 					if(result)
