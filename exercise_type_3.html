@@ -54,7 +54,7 @@
 			</div>
 			<div class="col-sm-7 main">
 				<div class="thumbnail">
-					<img alt="valise" src="img/obj/gants.png">
+					<img alt="valise" src="img/obj/valise.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter" >
 						<span class="syllabe" data-solution="va">__</span><span>lise</span>
@@ -62,7 +62,7 @@
 				</div>
 
 				<div class="thumbnail">
-					<img alt="pirate" src="img/obj/gants.png">
+					<img alt="pirate" src="img/obj/pirate.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
 						<span>pi</span><span class="syllabe" data-solution="ra">__</span><span>te</span>
@@ -70,7 +70,7 @@
 				</div>
 					
 				<div class="thumbnail" data-solution="1">
-					<img alt="chapeau" src="img/obj/gants.png">
+					<img alt="chapeau" src="img/obj/chapeau.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
 						<span class="syllabe" data-solution="cha">__</span><span>peau</span>
@@ -78,7 +78,7 @@
 				</div>
 
 				<div class="thumbnail">
-					<img alt="tapis" src="img/obj/gants.png">
+					<img alt="tapis" src="img/obj/tapis.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
 						<span class="syllabe" data-solution="ta">__</span><span>pis</span>
@@ -86,7 +86,7 @@
 				</div>
 				
 				<div class="thumbnail">
-					<img alt="ananas" src="img/obj/gants.png">
+					<img alt="ananas" src="img/obj/ananas.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
 						<span>a</span><span class="syllabe" data-solution="na">__</span><span>nas</span>
@@ -94,10 +94,10 @@
 				</div>
 				
 				<div class="thumbnail">
-					<img alt="banane" src="img/obj/gants.png">
+					<img alt="banane" src="img/obj/banane.png">
 					<span class="sound">&nbsp;</span>
 					<div class="caption syllabes-counter">
-						<span>ba</span><span class="syllabe" data-solution="na">__</span><span>ne</span>
+						<span class="syllabe" data-solution="ba">__</span><span>nane</span>
 					</div>
 				</div>
 					
@@ -125,33 +125,33 @@
 					<span class="syllabe btn btn-primary btn-long">ra</span>
 					<span class="syllabe btn btn-primary btn-long">ta</span>
 					<span class="syllabe btn btn-primary btn-long">na</span>
-					<span class="syllabe btn btn-primary btn-long">na</span>
+					<span class="syllabe btn btn-primary btn-long">ba</span>
 				</div>
 			</div>
 			
 			<div class="col-sm-2" id="right-colmn">
 				<div class="thumbnail" id="valise">
-					<img alt="valise" src="img/obj/cheval.png">
+					<img alt="valise" src="img/obj/valise.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
 				<div class="thumbnail" id="pirate">
-					<img alt="pirate" src="img/obj/arrosoir.png">
+					<img alt="pirate" src="img/obj/pirate.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
 				<div class="thumbnail" id="chapeau">
-					<img alt="chapeau" src="img/obj/chat.png">
+					<img alt="chapeau" src="img/obj/chapeau.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
 				<div class="thumbnail" id="tapis">
-					<img alt="tapis" src="img/obj/tomate.png">
+					<img alt="tapis" src="img/obj/tapis.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
 				<div class="thumbnail" id="ananas">
-					<img alt="ananas" src="img/obj/tomate.png">
+					<img alt="ananas" src="img/obj/ananas.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
 				<div class="thumbnail" id="banane">
-					<img alt="banane" src="img/obj/tomate.png">
+					<img alt="banane" src="img/obj/banane.png">
 					<span class="tick-cross">&nbsp;</span>
 				</div>
 			</div>
@@ -203,15 +203,15 @@
 		        });
 			});
 			
-			$.each($(".syllabes-counter span.empty"), function(index, value) {
+			$.each($(".main .syllabe"), function(index, value) {
 				this.addEventListener("click", function() {
-					$(this).removeClass("full");
-					$(this).addClass("empty");
-					$.each($(this).siblings(), function(index, value) {
-						$(value).droppable('enable');
-					});
-					$("#sac-syllabes .circle").first().clone().appendTo("#sac-syllabes");
-					activateChips();
+					var content = $(this).html();
+					if(content != "_")
+					{
+						$(this).html("_");
+						$("#sac-syllabes").append("<span class='syllabe btn btn-primary btn-long'>" + content + "</span>");
+						activateChips();
+					}
 				});
 			});
 				
