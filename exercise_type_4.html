@@ -178,6 +178,7 @@
 	<script>
 		$(document).ready(function(){
 			activateChips();
+			activateSounds();
 			
 			function activateChips(){
 				$.each($("#sac-mots .thumbnail img"), function(index, value) {
@@ -199,8 +200,10 @@
 							new_img.css('left', '0');
 							new_img.css('right', '0');
 							ui.draggable.css('display', 'none');
+							ui.draggable.parent().children(".sound").css('display', 'none');
 							this.addEventListener("click", function() {
-								deleteImgActivate($(this).children("img"));	
+								deleteImgActivate($(this).children("img"));
+								activateSounds();
 							});
 							return false;
 						});
@@ -213,16 +216,16 @@
 			function deleteImgActivate(elm)
 			{
 				elm.remove();
-				//console.log(elm.attr("alt"));
 				$.each($("#sac-mots .thumbnail img"), function(index, value) {
 					if ($(this).attr("alt") == elm.attr("alt"))
 					{
-						console.log($(this));
 						$(this).css('display', 'block');
 						$(this).css('top', '0');
 						$(this).css('bottom', '0');
 						$(this).css('left', '0');
 						$(this).css('right', '0');
+						
+						$(this).parent().children(".sound").css('display', 'block');
 					}
 				});
 			}
@@ -237,9 +240,24 @@
 		        
 		        this.addEventListener("click", function() {
 		            audio[thisAlt].play();
-		            console.log(audio[thisAlt]);
 		        });
 			});
+			
+			function activateSounds()
+			{
+				var audio = {};
+				
+				$.each($("#sac-mots .thumbnail img"), function(index, value) {
+					// Preload all the sound files
+					var thisAlt = $(this).attr("alt");
+			        audio[thisAlt] = new Audio();
+			        audio[thisAlt].src = 'audio/' + thisAlt + '.mp3';
+			        
+			        this.addEventListener("click", function() {
+			            audio[thisAlt].play();
+			        });
+				});
+			}
 			
 			$("#correction").click(function() {
 				okSound = new Audio();
@@ -253,8 +271,6 @@
 					var result = givenAnswer == correctAnswer;
 					
 					var timeItem = $("#" + $(this).children("img").attr("alt"));
-					
-					console.log($(this));
 					
 					if(result)
 					{

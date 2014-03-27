@@ -126,7 +126,13 @@
 			}
 			
 		#sac-mots .match .sound {
+			background: url("../img/sound.png") no-repeat 0 0;
+			width: 32px;
+			height: 32px;
+			display: block;
 			position: absolute;
+			left: 7px;
+			top: 70px;
 			}
 			
 		.col-sm-1-5 {
