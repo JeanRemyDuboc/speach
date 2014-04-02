@@ -1,291 +1,240 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>S'peach: teaching children with autism how to read</title>
+---
+layout: default
+css: syllabes_count
+---
 
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-		
-		<!-- Speach CSS -->
-		<link rel="stylesheet" href="css/default.css">
-		<link rel="stylesheet" href="css/syllabes_count.css">
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
-	</head>
-	
-	<body>
-	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	  <div class="container">
-	<div class="navbar-header">
-	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	    <span class="sr-only">Toggle navigation</span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	  </button>
-	  <a class="navbar-brand" href="index.html">S'peach</a>
-	</div>
-	<div class="collapse navbar-collapse">
-	  <ul class="nav navbar-nav">
-	    <li><a href="index.html">Home</a></li>
-	    <li><a href="#about">About</a></li>
-	    <li><a href="#a-propos">A propos</a></li>
-	  </ul>
-	</div><!--/.nav-collapse -->
-	  </div>
-	</div>
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-10">
-				<div class="starter-template">
-					<h1>Je mets autant de jetons que j'entends de syllabes</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-10">
+			<div class="starter-template">
+				<h1>Je mets autant de jetons que j'entends de syllabes</h1>
+			</div>
+		</div>
+		<div class="col-sm-7 main">
+			<div class="thumbnail" data-solution="2">
+				<img alt="cheval" src="img/obj/cheval.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter" >
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
 				</div>
 			</div>
-			<div class="col-sm-7 main">
-				<div class="thumbnail" data-solution="2">
-					<img alt="cheval" src="img/obj/cheval.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter" >
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-					</div>
-				</div>
 
-				<div class="thumbnail" data-solution="3">
-					<img alt="arrosoir" src="img/obj/arrosoir.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-					</div>
+			<div class="thumbnail" data-solution="3">
+				<img alt="arrosoir" src="img/obj/arrosoir.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
 				</div>
-					
-				<div class="thumbnail" data-solution="1">
-					<img alt="gants" src="img/obj/gants.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-					</div>
-				</div>	
-
-				<div class="thumbnail" data-solution="1">
-					<img alt="chat" src="img/obj/chat.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-					</div>
-				</div>
-
-				<div class="thumbnail" data-solution="2">
-					<img alt="tomate" src="img/obj/tomate.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-					</div>
-				</div>
-					
-				<div class="thumbnail" data-solution="3">
-					<img alt="dinosaure" src="img/obj/dinosaure.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-						<span class="circle empty"></span>
-					</div>
-				</div>	
+			</div>
 				
-				<div class="result-btn">
-					<p>
-						<span>Tu joues pour:</span>
-						<span id="score">
-							<span class="star"></span>
-							<span class="star"></span>
-							<span class="star"></span>
-							<span class="star"></span>
-							<span class="star"></span>
-							<span class="star"></span>
-						</span>
-						<a id="correction" class="btn btn-primary btn-long" role="button" href="#">OK</a>	
-					</p>
+			<div class="thumbnail" data-solution="1">
+				<img alt="gants" src="img/obj/gants.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+				</div>
+			</div>	
+
+			<div class="thumbnail" data-solution="1">
+				<img alt="chat" src="img/obj/chat.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
 				</div>
 			</div>
-			
-			<div class="col-sm-2">
-				<h2>Sac à Syllabes</h2>
-				<div id="sac-syllabes">
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
-					<span class="circle full"></span>
+
+			<div class="thumbnail" data-solution="2">
+				<img alt="tomate" src="img/obj/tomate.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
 				</div>
 			</div>
+				
+			<div class="thumbnail" data-solution="3">
+				<img alt="dinosaure" src="img/obj/dinosaure.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+					<span class="circle empty"></span>
+				</div>
+			</div>	
 			
-			<div class="col-sm-2" id="right-colmn">
-				<div class="thumbnail" id="cheval">
-					<img alt="cheval" src="img/obj/cheval.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
-				<div class="thumbnail" id="arrosoir">
-					<img alt="arrosoir" src="img/obj/arrosoir.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
-				<div class="thumbnail" id="gants">
-					<img alt="gants" src="img/obj/gants.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
-				<div class="thumbnail" id="chat">
-					<img alt="chat" src="img/obj/chat.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
-				<div class="thumbnail" id="tomate">
-					<img alt="tomate" src="img/obj/tomate.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
-				<div class="thumbnail" id="dinosaure">
-					<img alt="dinosaure" src="img/obj/dinosaure.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
+			<div class="result-btn">
+				<p>
+					<span>Tu joues pour:</span>
+					<span id="score">
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+					</span>
+					<a id="correction" class="btn btn-primary btn-long" role="button" href="#">OK</a>	
+				</p>
+			</div>
+		</div>
+		
+		<div class="col-sm-2">
+			<h2>Sac à Syllabes</h2>
+			<div id="sac-syllabes">
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+				<span class="circle full"></span>
+			</div>
+		</div>
+		
+		<div class="col-sm-2" id="right-colmn">
+			<div class="thumbnail" id="cheval">
+				<img alt="cheval" src="img/obj/cheval.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="arrosoir">
+				<img alt="arrosoir" src="img/obj/arrosoir.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="gants">
+				<img alt="gants" src="img/obj/gants.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="chat">
+				<img alt="chat" src="img/obj/chat.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="tomate">
+				<img alt="tomate" src="img/obj/tomate.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="dinosaure">
+				<img alt="dinosaure" src="img/obj/dinosaure.png">
+				<span class="tick-cross">&nbsp;</span>
 			</div>
 		</div>
 	</div>
+</div>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<!-- jQuery UI-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-	
-	<script>
-		$(document).ready(function(){
-			activateChips();
-			
-			$.each($(".main .thumbnail"), function(index, value) {
-				$(this).droppable({
-					drop: function(event, ui){
-						ui.draggable.remove();
-						$(this).children(".caption").children(".empty").first().addClass("full").removeClass("empty");
-					}
-				});
-			});
-			
-			var audio = {};
-			
-			$.each($(".main .thumbnail img"), function( index, value ) {
-				// Preload all the sound files
-				var thisAlt = $(this).attr("alt");
-		        audio[thisAlt] = new Audio();
-		        audio[thisAlt].src = 'audio/' + thisAlt + '.mp3';
-		        
-		        this.addEventListener("click", function() {
-		            audio[thisAlt].play();
-		            console.log(audio[thisAlt]);
-		        });
-			});
-			
-			$.each($(".syllabes-counter span.empty"), function( index, value ) {
-				this.addEventListener("click", function() {
-					$(this).removeClass("full");
-					$(this).addClass("empty");
-					$("#sac-syllabes .circle").first().clone().appendTo("#sac-syllabes");
-					activateChips();
-				});
-			});
-				
-			$("#correction").click(function() {
-				okSound = new Audio();
-				okSound.src = 'audio/ok.mp3';
-				okSound.play();
-				
-				var score = 0;
-				$(".main .thumbnail").each(function(elmt) {
-					var correctAnswer = $(this).attr("data-solution");
-					var givenAnswer = $(this).children(".caption").children(".full").length;
-					
-					var result = givenAnswer == correctAnswer;
-					var timeItem = $("#" + $(this).children("img").attr("alt"));
-					
-					if(result)
-					{
-						timeItem.addClass("correct");
-						timeItem.removeClass("incorrect");
-						
-						$(this).addClass("correct");
-						$(this).removeClass("incorrect");
-						score++;
-					}
-					else
-					{
-						timeItem.addClass("incorrect");
-						timeItem.removeClass("correct");
-						
-						$(this).addClass("incorrect");
-						$(this).removeClass("correct");
-					}
-				});
-				
-				var counter = 1;
-				$("#score span").each(function(elmt) {
-					if(counter <= score)
-					{
-						$(this).addClass("correct-star");
-						$(this).removeClass("star");
-					}
-					counter++;
-				});
-				
-				if (score == $(".main .thumbnail").length)
-				{
-					setInterval(function(){window.location.href = "bravo.html";},2000);
+<script>
+	$(document).ready(function(){
+		activateChips();
+		
+		$.each($(".main .thumbnail"), function(index, value) {
+			$(this).droppable({
+				drop: function(event, ui){
+					ui.draggable.remove();
+					$(this).children(".caption").children(".empty").first().addClass("full").removeClass("empty");
 				}
 			});
 		});
 		
-		function activateChips(){
-			$.each($("#sac-syllabes .circle"), function( index, value ) {
-				$(this).draggable({
-					revert: "invalid",
-				});
-				$(this).css('-ms-touch-action', 'none');
+		var audio = {};
+		
+		$.each($(".main .thumbnail img"), function( index, value ) {
+			// Preload all the sound files
+			var thisAlt = $(this).attr("alt");
+	        audio[thisAlt] = new Audio();
+	        audio[thisAlt].src = 'audio/' + thisAlt + '.mp3';
+	        
+	        this.addEventListener("click", function() {
+	            audio[thisAlt].play();
+	            console.log(audio[thisAlt]);
+	        });
+		});
+		
+		$.each($(".syllabes-counter span.empty"), function( index, value ) {
+			this.addEventListener("click", function() {
+				$(this).removeClass("full");
+				$(this).addClass("empty");
+				$("#sac-syllabes .circle").first().clone().appendTo("#sac-syllabes");
+				activateChips();
 			});
-		}
-	</script>
-  </body>
-</html>
+		});
+			
+		$("#correction").click(function() {
+			okSound = new Audio();
+			okSound.src = 'audio/ok.mp3';
+			okSound.play();
+			
+			var score = 0;
+			$(".main .thumbnail").each(function(elmt) {
+				var correctAnswer = $(this).attr("data-solution");
+				var givenAnswer = $(this).children(".caption").children(".full").length;
+				
+				var result = givenAnswer == correctAnswer;
+				var timeItem = $("#" + $(this).children("img").attr("alt"));
+				
+				if(result)
+				{
+					timeItem.addClass("correct");
+					timeItem.removeClass("incorrect");
+					
+					$(this).addClass("correct");
+					$(this).removeClass("incorrect");
+					score++;
+				}
+				else
+				{
+					timeItem.addClass("incorrect");
+					timeItem.removeClass("correct");
+					
+					$(this).addClass("incorrect");
+					$(this).removeClass("correct");
+				}
+			});
+			
+			var counter = 1;
+			$("#score span").each(function(elmt) {
+				if(counter <= score)
+				{
+					$(this).addClass("correct-star");
+					$(this).removeClass("star");
+				}
+				counter++;
+			});
+			
+			if (score == $(".main .thumbnail").length)
+			{
+				setInterval(function(){window.location.href = "bravo.html";},2000);
+			}
+		});
+	});
+	
+	function activateChips(){
+		$.each($("#sac-syllabes .circle"), function( index, value ) {
+			$(this).draggable({
+				revert: "invalid",
+			});
+			$(this).css('-ms-touch-action', 'none');
+		});
+	}
+</script>

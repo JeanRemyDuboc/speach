@@ -1,269 +1,219 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>S'peach: teaching children with autism how to read</title>
+---
+layout: default
+css: syllabes_replacement
+---
 
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-		
-		<!-- Speach CSS -->
-		<link rel="stylesheet" href="css/default.css">
-		<link rel="stylesheet" href="css/syllabes_replacement.css">
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
-	</head>
-	
-	<body>
-	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	  <div class="container">
-	<div class="navbar-header">
-	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	    <span class="sr-only">Toggle navigation</span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	  </button>
-	  <a class="navbar-brand" href="index.html">S'peach</a>
-	</div>
-	<div class="collapse navbar-collapse">
-	  <ul class="nav navbar-nav">
-	    <li><a href="index.html">Home</a></li>
-	    <li><a href="#about">About</a></li>
-	    <li><a href="#a-propos">A propos</a></li>
-	  </ul>
-	</div><!--/.nav-collapse -->
-	  </div>
-	</div>
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-10">
-				<div class="starter-template">
-					<h1>Je replace les syllabes</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-10">
+			<div class="starter-template">
+				<h1>Je replace les syllabes</h1>
+			</div>
+		</div>
+		<div class="col-sm-7 main">
+			<div class="thumbnail">
+				<img alt="valise" src="img/obj/valise.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter" >
+					<span class="syllabe" data-solution="va">__</span><span>lise</span>
 				</div>
 			</div>
-			<div class="col-sm-7 main">
-				<div class="thumbnail">
-					<img alt="valise" src="img/obj/valise.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter" >
-						<span class="syllabe" data-solution="va">__</span><span>lise</span>
-					</div>
-				</div>
 
-				<div class="thumbnail">
-					<img alt="pirate" src="img/obj/pirate.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span>pi</span><span class="syllabe" data-solution="ra">__</span><span>te</span>
-					</div>
+			<div class="thumbnail">
+				<img alt="pirate" src="img/obj/pirate.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span>pi</span><span class="syllabe" data-solution="ra">__</span><span>te</span>
 				</div>
-					
-				<div class="thumbnail" data-solution="1">
-					<img alt="chapeau" src="img/obj/chapeau.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span class="syllabe" data-solution="cha">__</span><span>peau</span>
-					</div>
+			</div>
+				
+			<div class="thumbnail" data-solution="1">
+				<img alt="chapeau" src="img/obj/chapeau.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="syllabe" data-solution="cha">__</span><span>peau</span>
 				</div>
+			</div>
 
-				<div class="thumbnail">
-					<img alt="tapis" src="img/obj/tapis.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span class="syllabe" data-solution="ta">__</span><span>pis</span>
-					</div>
-				</div>
-				
-				<div class="thumbnail">
-					<img alt="ananas" src="img/obj/ananas.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span>a</span><span class="syllabe" data-solution="na">__</span><span>nas</span>
-					</div>
-				</div>
-				
-				<div class="thumbnail">
-					<img alt="banane" src="img/obj/banane.png">
-					<span class="sound">&nbsp;</span>
-					<div class="caption syllabes-counter">
-						<span class="syllabe" data-solution="ba">__</span><span>nane</span>
-					</div>
-				</div>
-					
-				<div class="result-btn">
-					<p>
-						<span>Tu joues pour:</span>
-						<span id="score">
-							<span class="star"></span>
-							<span class="star"></span>
-							<span class="star"></span>
-							<span class="star"></span>
-							<span class="star"></span>
-							<span class="star"></span>
-						</span>
-						<a id="correction" class="btn btn-primary btn-long" role="button" href="#">OK</a>	
-					</p>
+			<div class="thumbnail">
+				<img alt="tapis" src="img/obj/tapis.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="syllabe" data-solution="ta">__</span><span>pis</span>
 				</div>
 			</div>
 			
-			<div class="col-sm-2">
-				<h2>Sac à Syllabes</h2>
-				<div id="sac-syllabes">
-					<span class="syllabe btn btn-primary btn-long">va</span>
-					<span class="syllabe btn btn-primary btn-long">cha</span>
-					<span class="syllabe btn btn-primary btn-long">ra</span>
-					<span class="syllabe btn btn-primary btn-long">ta</span>
-					<span class="syllabe btn btn-primary btn-long">na</span>
-					<span class="syllabe btn btn-primary btn-long">ba</span>
+			<div class="thumbnail">
+				<img alt="ananas" src="img/obj/ananas.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span>a</span><span class="syllabe" data-solution="na">__</span><span>nas</span>
 				</div>
 			</div>
 			
-			<div class="col-sm-2" id="right-colmn">
-				<div class="thumbnail" id="valise">
-					<img alt="valise" src="img/obj/valise.png">
-					<span class="tick-cross">&nbsp;</span>
+			<div class="thumbnail">
+				<img alt="banane" src="img/obj/banane.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="syllabe" data-solution="ba">__</span><span>nane</span>
 				</div>
-				<div class="thumbnail" id="pirate">
-					<img alt="pirate" src="img/obj/pirate.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
-				<div class="thumbnail" id="chapeau">
-					<img alt="chapeau" src="img/obj/chapeau.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
-				<div class="thumbnail" id="tapis">
-					<img alt="tapis" src="img/obj/tapis.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
-				<div class="thumbnail" id="ananas">
-					<img alt="ananas" src="img/obj/ananas.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
-				<div class="thumbnail" id="banane">
-					<img alt="banane" src="img/obj/banane.png">
-					<span class="tick-cross">&nbsp;</span>
-				</div>
+			</div>
+				
+			<div class="result-btn">
+				<p>
+					<span>Tu joues pour:</span>
+					<span id="score">
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+					</span>
+					<a id="correction" class="btn btn-primary btn-long" role="button" href="#">OK</a>	
+				</p>
+			</div>
+		</div>
+		
+		<div class="col-sm-2">
+			<h2>Sac à Syllabes</h2>
+			<div id="sac-syllabes">
+				<span class="syllabe btn btn-primary btn-long">va</span>
+				<span class="syllabe btn btn-primary btn-long">cha</span>
+				<span class="syllabe btn btn-primary btn-long">ra</span>
+				<span class="syllabe btn btn-primary btn-long">ta</span>
+				<span class="syllabe btn btn-primary btn-long">na</span>
+				<span class="syllabe btn btn-primary btn-long">ba</span>
+			</div>
+		</div>
+		
+		<div class="col-sm-2" id="right-colmn">
+			<div class="thumbnail" id="valise">
+				<img alt="valise" src="img/obj/valise.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="pirate">
+				<img alt="pirate" src="img/obj/pirate.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="chapeau">
+				<img alt="chapeau" src="img/obj/chapeau.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="tapis">
+				<img alt="tapis" src="img/obj/tapis.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="ananas">
+				<img alt="ananas" src="img/obj/ananas.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="banane">
+				<img alt="banane" src="img/obj/banane.png">
+				<span class="tick-cross">&nbsp;</span>
 			</div>
 		</div>
 	</div>
+</div>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<!-- jQuery UI-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-	
-	<script>
-		$(document).ready(function(){
-			activateChips();
-			
-			function activateChips(){
-				$.each($("#sac-syllabes .syllabe"), function(index, value) {
-					$(this).draggable({
-						revert: "invalid",
-					});
-					$(this).css('-ms-touch-action', 'none');
+
+<script>
+	$(document).ready(function(){
+		activateChips();
+		
+		function activateChips(){
+			$.each($("#sac-syllabes .syllabe"), function(index, value) {
+				$(this).draggable({
+					revert: "invalid",
 				});
-			}
-			
-			$.each($(".main .thumbnail"), function(index, value) {
-				$(this).droppable({
-					drop: function(event, ui){
-						ui.draggable.remove();
-						$(this).children(".caption").children(".syllabe").text(ui.draggable.html());
-					},
-					greedy: true,
-					tolerance: 'pointer',
-				});
+				$(this).css('-ms-touch-action', 'none');
 			});
-			
-			var audio = {};
-			
-			$.each($(".main .thumbnail img"), function(index, value) {
-				// Preload all the sound files
-				var thisAlt = $(this).attr("alt");
-		        audio[thisAlt] = new Audio();
-		        audio[thisAlt].src = 'audio/' + thisAlt + '.mp3';
-		        
-		        this.addEventListener("click", function() {
-		            audio[thisAlt].play();
-		            console.log(audio[thisAlt]);
-		        });
+		}
+		
+		$.each($(".main .thumbnail"), function(index, value) {
+			$(this).droppable({
+				drop: function(event, ui){
+					ui.draggable.remove();
+					$(this).children(".caption").children(".syllabe").text(ui.draggable.html());
+				},
+				greedy: true,
+				tolerance: 'pointer',
 			});
-			
-			$.each($(".main .syllabe"), function(index, value) {
-				this.addEventListener("click", function() {
-					var content = $(this).html();
-					if(content != "_")
-					{
-						$(this).html("_");
-						$("#sac-syllabes").append("<span class='syllabe btn btn-primary btn-long'>" + content + "</span>");
-						activateChips();
-					}
-				});
-			});
-				
-			$("#correction").click(function() {
-				okSound = new Audio();
-				okSound.src = 'audio/ok.mp3';
-				okSound.play();
-				
-				var score = 0;
-				$(".main .thumbnail").each(function(elmt) {
-					var givenAnswer = $(this).children(".caption").children(".syllabe").html();
-					var correctAnswer =  $(this).children(".caption").children(".syllabe").attr("data-solution");
-					var result = givenAnswer == correctAnswer;
-					var timeItem = $("#" + $(this).children("img").attr("alt"));
-					
-					if(result)
-					{
-						timeItem.addClass("correct");
-						timeItem.removeClass("incorrect");
-						
-						$(this).addClass("correct");
-						$(this).removeClass("incorrect");
-						score++;
-					}
-					else
-					{
-						timeItem.addClass("incorrect");
-						timeItem.removeClass("correct");
-						
-						$(this).addClass("incorrect");
-						$(this).removeClass("correct");
-					}
-				});
-				
-				var counter = 1;
-				$("#score span").each(function(elmt) {
-					if(counter <= score)
-					{
-						$(this).addClass("correct-star");
-						$(this).removeClass("star");
-					}
-					counter++;
-				});
-				
-				
-				if (score == $(".main .thumbnail").length)
+		});
+		
+		var audio = {};
+		
+		$.each($(".main .thumbnail img"), function(index, value) {
+			// Preload all the sound files
+			var thisAlt = $(this).attr("alt");
+	        audio[thisAlt] = new Audio();
+	        audio[thisAlt].src = 'audio/' + thisAlt + '.mp3';
+	        
+	        this.addEventListener("click", function() {
+	            audio[thisAlt].play();
+	            console.log(audio[thisAlt]);
+	        });
+		});
+		
+		$.each($(".main .syllabe"), function(index, value) {
+			this.addEventListener("click", function() {
+				var content = $(this).html();
+				if(content != "_")
 				{
-					setInterval(function(){window.location.href = "bravo.html";},2000);
+					$(this).html("_");
+					$("#sac-syllabes").append("<span class='syllabe btn btn-primary btn-long'>" + content + "</span>");
+					activateChips();
+				}
+			});
+		});
+			
+		$("#correction").click(function() {
+			okSound = new Audio();
+			okSound.src = 'audio/ok.mp3';
+			okSound.play();
+			
+			var score = 0;
+			$(".main .thumbnail").each(function(elmt) {
+				var givenAnswer = $(this).children(".caption").children(".syllabe").html();
+				var correctAnswer =  $(this).children(".caption").children(".syllabe").attr("data-solution");
+				var result = givenAnswer == correctAnswer;
+				var timeItem = $("#" + $(this).children("img").attr("alt"));
+				
+				if(result)
+				{
+					timeItem.addClass("correct");
+					timeItem.removeClass("incorrect");
+					
+					$(this).addClass("correct");
+					$(this).removeClass("incorrect");
+					score++;
+				}
+				else
+				{
+					timeItem.addClass("incorrect");
+					timeItem.removeClass("correct");
+					
+					$(this).addClass("incorrect");
+					$(this).removeClass("correct");
 				}
 			});
 			
+			var counter = 1;
+			$("#score span").each(function(elmt) {
+				if(counter <= score)
+				{
+					$(this).addClass("correct-star");
+					$(this).removeClass("star");
+				}
+				counter++;
+			});
+			
+			
+			if (score == $(".main .thumbnail").length)
+			{
+				setInterval(function(){window.location.href = "bravo.html";},2000);
+			}
 		});
-	</script>
-  </body>
-</html>
+		
+	});
+</script>
