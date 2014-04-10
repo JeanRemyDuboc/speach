@@ -1,0 +1,163 @@
+.empty {
+	background: transparent url("../img/circle-big-empty.png") center center;
+	}
+
+.full {
+	background: transparent url("../img/circle-big-full.png") center center;
+	}
+	
+.main .correct {
+	border: 1px solid #82CF0C;
+	}
+	
+.main .incorrect {
+	border: 1px solid #C32A00;
+	}
+	
+.main .syllabe {
+	font-weight: bold;
+	color: #2D6CA2;
+	}
+	
+#right-colmn .thumbnail {
+	position: relative;
+	}
+	
+#right-colmn .tick-cross {
+	display: block;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	}
+	
+#right-colmn .correct {
+	background: #82CF0C;
+	}
+	
+	#right-colmn .correct .tick-cross {
+		background: url("../img/tick.png");
+		}
+	
+#right-colmn .incorrect {
+	background: #C32A00;
+	}
+	
+	#right-colmn .incorrect .tick-cross {
+		background: url("../img/cross.png");
+		}
+		
+.result-btn span {
+	display: block;
+	float: left;
+	font-size: 25px;
+	}
+	
+#score {
+	margin-left: 5px;
+	}
+	
+	#score span {
+		width: 24px;
+		height: 30px;
+		margin: 2px 5px 0 0;
+		}
+		
+		#score span.correct-star {
+			background: url("../img/star.png") no-repeat 0 5px;
+			}
+		
+		#score span.star {
+			background: url("../img/star-grey.png") no-repeat 0 5px;
+			}
+		
+.main .thumbnail {
+	width: 205px;
+	float: left;
+	margin: 0 10px 10px 0;
+	position: relative;
+	}
+	
+	.thumbnail .sound {
+		background: url("../img/sound.png") no-repeat 0 0;
+		width: 32px;
+		height: 32px;
+		display: block;
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		}
+	
+	.main .thumbnail .caption {
+		padding: 7px 0 0 0;
+		margin: 0;
+		font-size: 20px;
+		clear: both;
+		}
+	
+	.main .thumbnail img {
+		display: block;
+		height: 180px;
+		float: left;
+		margin: 7px 0 0 7px; 
+		}
+		
+		.main .thumbnail .match img {
+			margin: 0;
+			}
+		
+	.main .match {
+		float: left;
+		display: block;
+		height: 180px;
+		width: 87px;
+		margin: 7px 0 0 0;
+		}
+	
+	.main .thumbnail .caption {
+		text-align: center;
+		}
+		
+		.main .thumbnail .caption .circle {
+			display: inline-block;
+			width: 45px;
+			height: 45px;
+			margin: 0 5px 5px 0;
+			}
+			
+.result-btn {
+	padding: 20px 0 0 0;
+	clear: both;
+	}
+	
+#sac-syllabes {
+	margin-top: -63px;
+	}
+	
+	#sac-syllabes .thumbnail {
+		width: 110px;
+		height: 190px;
+		margin: 0 10px 10px 0;
+		float: left;
+		position: relative;
+		}
+		
+		#sac-syllabes .thumbnail img {
+			height: 180px;
+			}
+	
+#right-colmn {
+	margin-top: -15px;
+	padding-top: 10px;
+	background: url("../img/timeline.png") repeat-y 40px 0;
+	}
+
+	#right-colmn .thumbnail {
+		width: 80px;
+		margin-bottom: 10px;
+		}
+		
+		#right-colmn .thumbnail {
+			width: 50px;
+			}

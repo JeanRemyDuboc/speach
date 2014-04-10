@@ -1,0 +1,280 @@
+---
+layout: default
+css: strange_animals
+---
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-10">
+			<div class="starter-template">
+				<h1>Animaux extraordinaires</h1>
+			</div>
+		</div>
+		<div class="col-sm-7 main">
+			<div class="thumbnail">
+				<img alt="va" src="img/obj/special_animals/va.png">
+				<div class="match" data-solution="chon"></div>
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter" >
+					va<span class="syllabe">chon</span><span></span>
+				</div>
+			</div>
+			
+			<div class="thumbnail">
+				<img alt="oi" src="img/obj/special_animals/oi.png">
+				<div class="match" data-solution="val"></div>
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter" >
+					oi<span class="syllabe">val</span><span></span>
+				</div>
+			</div>
+			
+			<div class="thumbnail">
+				<img alt="pou" src="img/obj/special_animals/pou.png">
+				<div class="match" data-solution="vre"></div>
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter" >
+					Pou<span class="syllabe">vre</span><span></span>
+				</div>
+			</div>
+			
+			<div class="thumbnail">
+				<img alt="mou" src="img/obj/special_animals/mou.png">
+				<div class="match" data-solution="pin"></div>
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter" >
+					Mou<span class="syllabe">pin</span><span></span>
+				</div>
+			</div>
+			
+			<div class="thumbnail">
+				<img alt="ca" src="img/obj/special_animals/ca.png">
+				<div class="match" data-solution="rafe"></div>
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter" >
+					Ca<span class="syllabe">rafe</span><span></span>
+				</div>
+			</div>
+			
+			<div class="thumbnail">
+				<img alt="dau" src="img/obj/special_animals/dau.png">
+				<div class="match" data-solution="gouin"></div>
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter" >
+					Dau<span class="syllabe">gouin</span><span></span>
+				</div>
+			</div>
+				
+			<div class="result-btn">
+				<p>
+					<span>Tu joues pour:</span>
+					<span id="score">
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+					</span>
+					<a id="correction" class="btn btn-primary btn-long" role="button" href="#">OK</a>	
+				</p>
+			</div>
+		</div>
+		
+		<div class="col-sm-3" id="sac-syllabes">
+			<h2>Sac à syllabes</h2>
+			<div>
+				<span class="match thumbnail">
+					<img alt="chon" src="img/obj/special_animals/chon.png">
+					<span class="sound">&nbsp;</span>
+				</span>
+				<span class="match thumbnail">
+					<img alt="val" src="img/obj/special_animals/val.png">
+					<span class="sound">&nbsp;</span>
+				</span>
+				<span class="match thumbnail">
+					<img alt="vre" src="img/obj/special_animals/vre.png">
+					<span class="sound">&nbsp;</span>
+				</span>
+				<span class="match thumbnail">
+					<img alt="pin" src="img/obj/special_animals/pin.png">
+					<span class="sound">&nbsp;</span>
+				</span>
+				<span class="match thumbnail">
+					<img alt="rafe" src="img/obj/special_animals/rafe.png">
+					<span class="sound">&nbsp;</span>
+				</span>
+				<span class="match thumbnail">
+					<img alt="gouin" src="img/obj/special_animals/gouin.png">
+					<span class="sound">&nbsp;</span>
+				</span>
+			</div>
+		</div>
+		
+		<div class="col-sm-1" id="right-colmn">
+			<div class="thumbnail" id="cochon">
+				<img alt="cochon" src="img/obj/special_animals/va.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="pain">
+				<img alt="pain" src="img/obj/special_animals/oi.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="bras">
+				<img alt="bras" src="img/obj/special_animals/pou.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="lit">
+				<img alt="lit" src="img/obj/special_animals/mou.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="cadeau">
+				<img alt="cadeau" src="img/obj/special_animals/ca.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="crevette">
+				<img alt="crevette" src="img/obj/special_animals/dau.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script>
+	$(document).ready(function(){
+		activateChips();
+		activateSounds();
+		
+		function activateChips(){
+			$.each($("#sac-syllabes .thumbnail img"), function(index, value) {
+				$(this).draggable({
+					revert: "invalid",
+				});
+				$(this).css('-ms-touch-action', 'none');
+			});
+		}
+
+		$.each($(".main .thumbnail"), function(index, value) {
+			$(this).droppable({
+				drop: function(event, ui){
+					$.each($(this).children(".match"), function(index, value) {
+						var new_img = ui.draggable.clone();
+						$(this).append(new_img);
+						new_img.css('top', '0');
+						new_img.css('bottom', '0');
+						new_img.css('left', '0');
+						new_img.css('right', '0');
+						ui.draggable.css('display', 'none');
+						ui.draggable.parent().children(".sound").css('display', 'none');
+						this.addEventListener("click", function() {
+							deleteImgActivate($(this).children("img"));
+							activateSounds();
+						});
+						return false;
+					});
+				},
+				greedy: false,
+				tolerance: 'pointer',
+			});
+		});
+		
+		function deleteImgActivate(elm)
+		{
+			elm.remove();
+			$.each($("#sac-syllabes .thumbnail img"), function(index, value) {
+				if ($(this).attr("alt") == elm.attr("alt"))
+				{
+					$(this).css('display', 'block');
+					$(this).css('top', '0');
+					$(this).css('bottom', '0');
+					$(this).css('left', '0');
+					$(this).css('right', '0');
+					
+					$(this).parent().children(".sound").css('display', 'block');
+				}
+			});
+		}
+
+		var audio = {};
+		
+		$.each($(".main .thumbnail img"), function(index, value) {
+			// Preload all the sound files
+			var thisAlt = $(this).attr("alt");
+	        audio[thisAlt] = new Audio();
+	        audio[thisAlt].src = 'audio/' + thisAlt + '.mp3';
+	        
+	        this.addEventListener("click", function() {
+	            audio[thisAlt].play();
+	        });
+		});
+		
+		function activateSounds()
+		{
+			var audio = {};
+			
+			$.each($("#sac-mots .thumbnail img"), function(index, value) {
+				// Preload all the sound files
+				var thisAlt = $(this).attr("alt");
+		        audio[thisAlt] = new Audio();
+		        audio[thisAlt].src = 'audio/' + thisAlt + '.mp3';
+		        
+		        this.addEventListener("click", function() {
+		            audio[thisAlt].play();
+		        });
+			});
+		}
+		
+		$("#correction").click(function() {
+			okSound = new Audio();
+			okSound.src = 'audio/ok.mp3';
+			okSound.play();
+			
+			var score = 0;
+			$(".main .thumbnail").each(function(elmt) {
+				var givenAnswer = $(this).children(".match").children("img").attr("alt");
+				console.log(givenAnswer);
+				var correctAnswer = $(this).children(".match").attr("data-solution");
+				console.log(correctAnswer);
+				var result = givenAnswer == correctAnswer;
+				
+				var timeItem = $("#" + $(this).children("img").attr("alt"));
+				
+				if(result)
+				{
+					timeItem.addClass("correct");
+					timeItem.removeClass("incorrect");
+					
+					$(this).addClass("correct");
+					$(this).removeClass("incorrect");
+					score++;
+				}
+				else
+				{
+					timeItem.addClass("incorrect");
+					timeItem.removeClass("correct");
+					
+					$(this).addClass("incorrect");
+					$(this).removeClass("correct");
+				}
+			});
+
+			var counter = 1;
+			$("#score span").each(function(elmt) {
+				if(counter <= score)
+				{
+					$(this).addClass("correct-star");
+					$(this).removeClass("star");
+				}
+				counter++;
+			});
+			
+			if (score == $(".main .thumbnail").length)
+			{
+				setInterval(function(){window.location.href = "bravo.html";},2000);
+			}
+		});
+		
+	});
+</script>
