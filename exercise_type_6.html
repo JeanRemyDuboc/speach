@@ -1,0 +1,219 @@
+---
+layout: default
+css: syllabes_replacement
+---
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-10">
+			<div class="starter-template">
+				<h1>Associer un mot-syllabe à une image</h1>
+			</div>
+		</div>
+		<div class="col-sm-7 main">
+			<div class="thumbnail">
+				<img alt="valise" src="img/obj/valise.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter" >
+					<span class="syllabe" data-solution="va">__</span><span>lise</span>
+				</div>
+			</div>
+
+			<div class="thumbnail">
+				<img alt="pirate" src="img/obj/pirate.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span>pi</span><span class="syllabe" data-solution="ra">__</span><span>te</span>
+				</div>
+			</div>
+				
+			<div class="thumbnail" data-solution="1">
+				<img alt="chapeau" src="img/obj/chapeau.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="syllabe" data-solution="cha">__</span><span>peau</span>
+				</div>
+			</div>
+
+			<div class="thumbnail">
+				<img alt="tapis" src="img/obj/tapis.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="syllabe" data-solution="ta">__</span><span>pis</span>
+				</div>
+			</div>
+			
+			<div class="thumbnail">
+				<img alt="ananas" src="img/obj/ananas.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span>a</span><span class="syllabe" data-solution="na">__</span><span>nas</span>
+				</div>
+			</div>
+			
+			<div class="thumbnail">
+				<img alt="banane" src="img/obj/banane.png">
+				<span class="sound">&nbsp;</span>
+				<div class="caption syllabes-counter">
+					<span class="syllabe" data-solution="ba">__</span><span>nane</span>
+				</div>
+			</div>
+				
+			<div class="result-btn">
+				<p>
+					<span>Tu joues pour:</span>
+					<span id="score">
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+					</span>
+					<a id="correction" class="btn btn-primary btn-long" role="button" href="#">OK</a>	
+				</p>
+			</div>
+		</div>
+		
+		<div class="col-sm-2">
+			<h2>Sac à Syllabes</h2>
+			<div id="sac-syllabes">
+				<span class="syllabe btn btn-primary btn-long">va</span>
+				<span class="syllabe btn btn-primary btn-long">cha</span>
+				<span class="syllabe btn btn-primary btn-long">ra</span>
+				<span class="syllabe btn btn-primary btn-long">ta</span>
+				<span class="syllabe btn btn-primary btn-long">na</span>
+				<span class="syllabe btn btn-primary btn-long">ba</span>
+			</div>
+		</div>
+		
+		<div class="col-sm-2" id="right-colmn">
+			<div class="thumbnail" id="valise">
+				<img alt="valise" src="img/obj/valise.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="pirate">
+				<img alt="pirate" src="img/obj/pirate.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="chapeau">
+				<img alt="chapeau" src="img/obj/chapeau.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="tapis">
+				<img alt="tapis" src="img/obj/tapis.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="ananas">
+				<img alt="ananas" src="img/obj/ananas.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+			<div class="thumbnail" id="banane">
+				<img alt="banane" src="img/obj/banane.png">
+				<span class="tick-cross">&nbsp;</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	$(document).ready(function(){
+		activateChips();
+		
+		function activateChips(){
+			$.each($("#sac-syllabes .syllabe"), function(index, value) {
+				$(this).draggable({
+					revert: "invalid",
+				});
+				$(this).css('-ms-touch-action', 'none');
+			});
+		}
+		
+		$.each($(".main .thumbnail"), function(index, value) {
+			$(this).droppable({
+				drop: function(event, ui){
+					ui.draggable.remove();
+					$(this).children(".caption").children(".syllabe").text(ui.draggable.html());
+				},
+				greedy: true,
+				tolerance: 'pointer',
+			});
+		});
+		
+		var audio = {};
+		
+		$.each($(".main .thumbnail img"), function(index, value) {
+			// Preload all the sound files
+			var thisAlt = $(this).attr("alt");
+	        audio[thisAlt] = new Audio();
+	        audio[thisAlt].src = 'audio/' + thisAlt + '.mp3';
+	        
+	        this.addEventListener("click", function() {
+	            audio[thisAlt].play();
+	            console.log(audio[thisAlt]);
+	        });
+		});
+		
+		$.each($(".main .syllabe"), function(index, value) {
+			this.addEventListener("click", function() {
+				var content = $(this).html();
+				if(content != "_")
+				{
+					$(this).html("_");
+					$("#sac-syllabes").append("<span class='syllabe btn btn-primary btn-long'>" + content + "</span>");
+					activateChips();
+				}
+			});
+		});
+			
+		$("#correction").click(function() {
+			okSound = new Audio();
+			okSound.src = 'audio/ok.mp3';
+			okSound.play();
+			
+			var score = 0;
+			$(".main .thumbnail").each(function(elmt) {
+				var givenAnswer = $(this).children(".caption").children(".syllabe").html();
+				var correctAnswer =  $(this).children(".caption").children(".syllabe").attr("data-solution");
+				var result = givenAnswer == correctAnswer;
+				var timeItem = $("#" + $(this).children("img").attr("alt"));
+				
+				if(result)
+				{
+					timeItem.addClass("correct");
+					timeItem.removeClass("incorrect");
+					
+					$(this).addClass("correct");
+					$(this).removeClass("incorrect");
+					score++;
+				}
+				else
+				{
+					timeItem.addClass("incorrect");
+					timeItem.removeClass("correct");
+					
+					$(this).addClass("incorrect");
+					$(this).removeClass("correct");
+				}
+			});
+			
+			var counter = 1;
+			$("#score span").each(function(elmt) {
+				if(counter <= score)
+				{
+					$(this).addClass("correct-star");
+					$(this).removeClass("star");
+				}
+				counter++;
+			});
+			
+			
+			if (score == $(".main .thumbnail").length)
+			{
+				setInterval(function(){window.location.href = "bravo.html";},2000);
+			}
+		});
+		
+	});
+</script>

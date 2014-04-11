@@ -12,7 +12,7 @@ css: strange_animals
 		</div>
 		<div class="col-sm-7 main">
 			<div class="thumbnail">
-				<img alt="va" src="img/obj/special_animals/va.png">
+				<img alt="vachon" src="img/obj/special_animals/va.png">
 				<div class="match" data-solution="chon"></div>
 				<span class="sound">&nbsp;</span>
 				<div class="caption syllabes-counter" >
@@ -21,7 +21,7 @@ css: strange_animals
 			</div>
 			
 			<div class="thumbnail">
-				<img alt="oi" src="img/obj/special_animals/oi.png">
+				<img alt="oival" src="img/obj/special_animals/oi.png">
 				<div class="match" data-solution="val"></div>
 				<span class="sound">&nbsp;</span>
 				<div class="caption syllabes-counter" >
@@ -30,7 +30,7 @@ css: strange_animals
 			</div>
 			
 			<div class="thumbnail">
-				<img alt="pou" src="img/obj/special_animals/pou.png">
+				<img alt="pouvre" src="img/obj/special_animals/pou.png">
 				<div class="match" data-solution="vre"></div>
 				<span class="sound">&nbsp;</span>
 				<div class="caption syllabes-counter" >
@@ -39,7 +39,7 @@ css: strange_animals
 			</div>
 			
 			<div class="thumbnail">
-				<img alt="mou" src="img/obj/special_animals/mou.png">
+				<img alt="moupin" src="img/obj/special_animals/mou.png">
 				<div class="match" data-solution="pin"></div>
 				<span class="sound">&nbsp;</span>
 				<div class="caption syllabes-counter" >
@@ -48,7 +48,7 @@ css: strange_animals
 			</div>
 			
 			<div class="thumbnail">
-				<img alt="ca" src="img/obj/special_animals/ca.png">
+				<img alt="carafe" src="img/obj/special_animals/ca.png">
 				<div class="match" data-solution="rafe"></div>
 				<span class="sound">&nbsp;</span>
 				<div class="caption syllabes-counter" >
@@ -57,7 +57,7 @@ css: strange_animals
 			</div>
 			
 			<div class="thumbnail">
-				<img alt="dau" src="img/obj/special_animals/dau.png">
+				<img alt="daugouin" src="img/obj/special_animals/dau.png">
 				<div class="match" data-solution="gouin"></div>
 				<span class="sound">&nbsp;</span>
 				<div class="caption syllabes-counter" >
@@ -85,55 +85,60 @@ css: strange_animals
 			<h2>Sac à syllabes</h2>
 			<div>
 				<span class="match thumbnail">
-					<img alt="chon" src="img/obj/special_animals/chon.png">
-					<span class="sound">&nbsp;</span>
-				</span>
-				<span class="match thumbnail">
-					<img alt="val" src="img/obj/special_animals/val.png">
-					<span class="sound">&nbsp;</span>
-				</span>
-				<span class="match thumbnail">
 					<img alt="vre" src="img/obj/special_animals/vre.png">
 					<span class="sound">&nbsp;</span>
 				</span>
+				
 				<span class="match thumbnail">
-					<img alt="pin" src="img/obj/special_animals/pin.png">
+					<img alt="chon" src="img/obj/special_animals/chon.png">
 					<span class="sound">&nbsp;</span>
 				</span>
+				
 				<span class="match thumbnail">
 					<img alt="rafe" src="img/obj/special_animals/rafe.png">
 					<span class="sound">&nbsp;</span>
 				</span>
+				
+				<span class="match thumbnail">
+					<img alt="val" src="img/obj/special_animals/val.png">
+					<span class="sound">&nbsp;</span>
+				</span>
+				
 				<span class="match thumbnail">
 					<img alt="gouin" src="img/obj/special_animals/gouin.png">
+					<span class="sound">&nbsp;</span>
+				</span>
+				
+				<span class="match thumbnail">
+					<img alt="pin" src="img/obj/special_animals/pin.png">
 					<span class="sound">&nbsp;</span>
 				</span>
 			</div>
 		</div>
 		
 		<div class="col-sm-1" id="right-colmn">
-			<div class="thumbnail" id="cochon">
-				<img alt="cochon" src="img/obj/special_animals/va.png">
+			<div class="thumbnail" id="vachon">
+				<img alt="va" src="img/obj/special_animals/va.png">
 				<span class="tick-cross">&nbsp;</span>
 			</div>
-			<div class="thumbnail" id="pain">
-				<img alt="pain" src="img/obj/special_animals/oi.png">
+			<div class="thumbnail" id="oival">
+				<img alt="oi" src="img/obj/special_animals/oi.png">
 				<span class="tick-cross">&nbsp;</span>
 			</div>
-			<div class="thumbnail" id="bras">
-				<img alt="bras" src="img/obj/special_animals/pou.png">
+			<div class="thumbnail" id="pouvre">
+				<img alt="pou" src="img/obj/special_animals/pou.png">
 				<span class="tick-cross">&nbsp;</span>
 			</div>
-			<div class="thumbnail" id="lit">
-				<img alt="lit" src="img/obj/special_animals/mou.png">
+			<div class="thumbnail" id="moupin">
+				<img alt="mou" src="img/obj/special_animals/mou.png">
 				<span class="tick-cross">&nbsp;</span>
 			</div>
-			<div class="thumbnail" id="cadeau">
-				<img alt="cadeau" src="img/obj/special_animals/ca.png">
+			<div class="thumbnail" id="carafe">
+				<img alt="ca" src="img/obj/special_animals/ca.png">
 				<span class="tick-cross">&nbsp;</span>
 			</div>
-			<div class="thumbnail" id="crevette">
-				<img alt="crevette" src="img/obj/special_animals/dau.png">
+			<div class="thumbnail" id="daugouin">
+				<img alt="dau" src="img/obj/special_animals/dau.png">
 				<span class="tick-cross">&nbsp;</span>
 			</div>
 		</div>
@@ -214,7 +219,7 @@ css: strange_animals
 		{
 			var audio = {};
 			
-			$.each($("#sac-mots .thumbnail img"), function(index, value) {
+			$.each($("#sac-syllabes .thumbnail img"), function(index, value) {
 				// Preload all the sound files
 				var thisAlt = $(this).attr("alt");
 		        audio[thisAlt] = new Audio();
@@ -236,10 +241,10 @@ css: strange_animals
 				var givenAnswer = $(this).children(".match").children("img").attr("alt");
 				console.log(givenAnswer);
 				var correctAnswer = $(this).children(".match").attr("data-solution");
-				console.log(correctAnswer);
 				var result = givenAnswer == correctAnswer;
 				
 				var timeItem = $("#" + $(this).children("img").attr("alt"));
+				console.log($(this).children("img").attr("alt"));
 				
 				if(result)
 				{
